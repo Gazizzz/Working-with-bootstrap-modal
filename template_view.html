@@ -164,16 +164,16 @@
                     
                     <!-- ТУТ  ЦИКЛ ВЫВОДА  КНОПОК КОТОРЫЕ ЗАПУСКАЮТ МОДАЛКУ -->
                      <!--  Кнопка для запуска модалки -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Modal">
                           Поле №1
                     </button>
                     <input type='hidden' id="fieldNumber1" name="fieldNumber1" >
                     <!-- Модалка Поле 1-->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                       <div   class="modal-dialog modal-xl" > 
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Поле №1</h1>
+                            <h1 class="modal-title fs-5" id="ModalLabel">Поле №1</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
@@ -196,11 +196,41 @@
                               </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                              <div class="tab-pane fade " id="deal-tab-pane" role="tabpanel" aria-labelledby="deal-tab" tabindex="0"><button class="dealButton generalButton">ID</button> <button class="dealButton generalButton">Название</button> <button class="dealButton generalButton">Тип</button></div>
-                              <div class="tab-pane fade" id="lid-tab-pane" role="tabpanel" aria-labelledby="lid-tab" tabindex="0"><button class="lidButton generalButton">Lid1</button> <button class="lidButton generalButton">Lid2</button> <button class="lidButton generalButton">Lid3</button><button class="lidButton generalButton">Lid4</button> <button class="lidButton generalButton">Lid5</button> <button class="lidButton generalButton">Lid6</button></div>
-                              <div class="tab-pane fade" id="contacts-tab-pane" role="tabpanel" aria-labelledby="contacts-tab" tabindex="0"><button class="contactsButton generalButton">Contacts1</button> <button class="contactsButton generalButton">Contacts2</button> <button class="contactsButton generalButton">Contacts3</button></div>
-                              <div class="tab-pane fade" id="company-tab-pane" role="tabpanel" aria-labelledby="company-tab" tabindex="0"><button class="companyButton generalButton">Company1</button> <button class="companyButton generalButton">Company2</button> <button class="companyButton generalButton">Company3</button></div>
-                              <div class="tab-pane fade" id="offers-tab-pane" role="tabpanel" aria-labelledby="offers-tab" tabindex="0"><button class="offersButton generalButton">Offers1</button> <button class="offersButton generalButton">Offers2</button> <button class="offersButton generalButton">Offers3</button></div>
+
+                              <div class="tab-pane fade " id="deal-tab-pane" role="tabpanel" aria-labelledby="deal-tab" tabindex="0">
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">ID</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">Название</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">Тип</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">Счет</button>
+                              </div>
+                             
+                              <div class="tab-pane fade" id="lid-tab-pane" role="tabpanel" aria-labelledby="lid-tab" tabindex="0">
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">ID</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">Название</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">Тип</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton">Счет</button>
+                              </div>
+                              
+                                <div class="tab-pane fade" id="contacts-tab-pane" role="tabpanel" aria-labelledby="contacts-tab" tabindex="0">
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">ID</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Название</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Тип</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Счет</button>
+                                </div>
+                             
+                                <div class="tab-pane fade" id="company-tab-pane" role="tabpanel" aria-labelledby="company-tab" tabindex="0">
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">ID</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Название</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Тип</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Счет</button>
+                                </div>
+                             
+                              <div class="tab-pane fade" id="offers-tab-pane" role="tabpanel" aria-labelledby="offers-tab" tabindex="0">
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">ID</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Название</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Тип</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton">Счет</button>
+                              </div>
                             </div>
                             <!-- EXIT Добавление табов в модалку Поле 1-->
                           </div>
@@ -211,53 +241,9 @@
                         </div>
                       </div>
                     </div>  
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalSecond">
-                      Поле №2  
-                    </button>
+                
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalSecond" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Поле №2</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <!-- Добавление табов в модалку Поле 2 -->
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link " id="dealSecond-tab" data-bs-toggle="tab" data-bs-target="#dealSecond-tab-pane" type="button" role="tab" aria-controls="dealSecond-tab-pane" aria-selected="true">СделкаSecond</button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="lid-tab" data-bs-toggle="tab" data-bs-target="#lid-tab-pane" type="button" role="tab" aria-controls="lid-tab-pane" aria-selected="false">ЛидSecond</button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contacts-tab" data-bs-toggle="tab" data-bs-target="#contacts-tab-pane" type="button" role="tab" aria-controls="contacts-tab-pane" aria-selected="false">КонтактыSecond</button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="company-tab" data-bs-toggle="tab" data-bs-target="#company-tab-pane" type="button" role="tab" aria-controls="company-tab-pane" aria-selected="false">КомпанияSecond</button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="offers-tab" data-bs-toggle="tab" data-bs-target="#offers-tab-pane" type="button" role="tab" aria-controls="offers-tab-pane" aria-selected="false" >Предложения</button>
-                              </li>
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
-                              <div class="tab-pane fade " id="dealSecond-tab-pane" role="tabpanel" aria-labelledby="dealSecond-tab" tabindex="0"><button class="dealButton generalButton">ID</button> <button class="dealButton generalButton">Название</button> <button class="dealButton generalButton">Тип</button></div>
-                              <div class="tab-pane fade" id="lid-tab-pane" role="tabpanel" aria-labelledby="lid-tab" tabindex="0"><button class="lidButton generalButton">Lid1</button> <button class="lidButton generalButton">Lid2</button> <button class="lidButton generalButton">Lid3</button><button class="lidButton generalButton">Lid4</button> <button class="lidButton generalButton">Lid5</button> <button class="lidButton generalButton">Lid6</button></div>
-                              <div class="tab-pane fade" id="contacts-tab-pane" role="tabpanel" aria-labelledby="contacts-tab" tabindex="0"><button class="contactsButton generalButton">Contacts1</button> <button class="contactsButton generalButton">Contacts2</button> <button class="contactsButton generalButton">Contacts3</button></div>
-                              <div class="tab-pane fade" id="company-tab-pane" role="tabpanel" aria-labelledby="company-tab" tabindex="0"><button class="companyButton generalButton">Company1</button> <button class="companyButton generalButton">Company2</button> <button class="companyButton generalButton">Company3</button></div>
-                              <div class="tab-pane fade" id="offers-tab-pane" role="tabpanel" aria-labelledby="offers-tab" tabindex="0"><button class="offersButton generalButton">Offers1</button> <button class="offersButton generalButton">Offers2</button> <button class="offersButton generalButton">Offers3</button></div>
-                            </div>
-                            <!-- Добавление табов в модалку Поле 2 -->
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                       
                     <button class="w-100 btn btn-primary btn-lg" type="submit">Сохранить</button>
                   </form>
             <?php
