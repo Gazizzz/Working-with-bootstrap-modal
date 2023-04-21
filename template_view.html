@@ -169,14 +169,14 @@
                         Поле №1
                       </button>
                       <input type='hidden' id="field_one" name="field_one">
-                      <span id="field_one_text"></span>
+                      <div id="field_one_text"></div>
                     </div>
                     <div>
                       <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_two">
                         Поле №2
                       </button>
                       <input type='hidden' id="field_two" name="field_two">
-                      <span id="field_two_text"></span>
+                      <div id="field_two_text"></div>
                     </div>div>
                     <!-- Модалка Поле 1-->
                     <div class="modal fade" id="Modal"  aria-labelledby="ModalLabel" aria-hidden="true">
@@ -202,44 +202,44 @@
                                 <button class="nav-link" id="company-panel-tab" data-bs-toggle="tab" data-bs-target="#company-panel" type="button" role="tab" aria-controls="company-panel" aria-selected="false">Компания</button>
                               </li>
                               <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="offers-panel-tab" data-bs-toggle="tab" data-bs-target="#offers-panel" type="button" role="tab" aria-controls="offers-panel" aria-selected="false" >Предложения</button>
+                                <button class="nav-link" id="offers-panel-tab" data-bs-toggle="tab" data-bs-target="#offers-panel" type="button" role="tab" aria-controls="offers-panel" aria-selected="false "   >Предложения</button>
                               </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
 
                               <div class="tab-pane fade show active" id="deal-panel" role="tabpanel" aria-labelledby="deal-panel-tab">
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button " data-bs-dismiss="modal" aria-label="Close"   data-id="field_id"  >ID</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name">Название</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type">Тип</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count">Счет</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button " data-bs-dismiss="modal" aria-label="Close"   data-id="field_id"  data-type="Сделка"> ID </button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name"  data-type="Сделка" >Название</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type"  data-type="Сделка">Тип</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count"  data-type="Сделка">Счет</button>
                               </div>
                              
                               <div class="tab-pane fade " id="lid-panel" role="tabpanel" aria-labelledby="lid-panel-tab">
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id_1">ID 1</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name_1">Название 1</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type_1">Тип 1 </button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count_1">Счет 1</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id_1"  data-type="Лид">ID 1</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name_1" data-type="Лид">Название 1</button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type_1" data-type="Лид">Тип 1 </button>
+                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count_1" data-type="Лид">Счет 1</button>
                               </div>
                               
                                 <div class="tab-pane fade" id="contacts-panel" role="tabpanel" aria-labelledby="contacts-panel-tab">
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id_2">ID 2</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name_2">Название 2</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type_2">Тип 2</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count_2">Счет 2</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id_2" data-type="Контакты">ID 2</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name_2" data-type="Контакты">Название 2</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type_2" data-type="Контакты">Тип 2</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count_2" data-type="Контакты">Счет 2</button>
                                 </div>
                              
                                 <div class="tab-pane fade" id="company-panel" role="tabpanel" aria-labelledby="company-panel-tab">
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id">ID 3</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name">Название 3</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type">Тип 3</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count">Счет 3</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id" data-type="Компания">ID 3</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name" data-type="Контакты">Название 3</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type" data-type="Контакты">Тип 3</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count" data-type="Контакты">Счет 3</button>
                                 </div>
                              
                               <div class="tab-pane fade" id="offers-panel" role="tabpanel" aria-labelledby="offers-panel-tab">
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id">ID</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name">Название</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type">Тип</button>
-                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count">Счет</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id" data-type="Предложения">ID</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name"  data-type="Предложения">Название</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type"  data-type="Предложения">Тип</button>
+                                  <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count" data-type="Предложения">Счет</button>
                               </div>
                             </div>
                             <!-- EXIT Добавление табов в модалку Поле 1-->
@@ -347,28 +347,30 @@
   var $editableFields = $('.js-field-button');
   var $modalOpenButton = $('.js-button-modal-open');
   var input;
-  var span;
+  var div;
+  
   var $modalTitle = $('.js-modal-title');
-
+ 
   $modalOpenButton.on('click', function(event) {
     var $target = $(event.target);
     var data = $target.data();
     var fieldId = data.fieldId;
-
     input = $('#' + fieldId);
-    span = $('#' + fieldId + '_text');
-
+    div = $('#' + fieldId + '_text');
     $modalTitle.text($target.text());
   });
 
   $editableFields.on('click', function(event) {
     var $target = $(event.target);
+    console.log (event)
     var fieldId = $target.data().id; 
-    var text = $target.text();
-  
+    var text = $target.text();  
+   var tabText = $target.data().type;
+ 
     input.val(fieldId);
-    span.text(text);
+    div.text(tabText +  ': ' + text  );
   });
+ 
 </script>
   </body>
 </html>
