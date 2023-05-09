@@ -1,19 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.84.0" />
     <title>Heroes · Bootstrap v5.0</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
-
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.0/examples/heroes/"
+    />
 
     <!-- Bootstrap core CSS -->
-<!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
 
     <style>
       .bd-placeholder-img {
@@ -32,455 +42,552 @@
       .style-button:hover {
         background-color: white;
         color: black;
-        padding: 0px; 
+        padding: 0px;
       }
       .generalButton {
         margin: 20px 10px 10px 10px;
         padding: 0 15px 0 15px;
         background: transparent;
-        
       }
-.js-button-modal-open {
-  margin: 10px;
-}
+      .js-button-modal-open {
+        margin: 10px;
+      }
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
       }
-
     </style>
 
-
     <!-- Custom styles for this template -->
-    <link href="heroes.css" rel="stylesheet">
+    <link href="heroes.css" rel="stylesheet" />
   </head>
   <body>
-    <?php
-      require_once __DIR__.'/../../b24/b24.php';
-    ?>
-<main>
-  <div class="container">
-    <div class="px-4 pt-5 my-5 text-center">
-      <?php
-        $message_type = $_GET['type'];
-        if ($message_type == 'whatsapp'):
-      ?>
-        <h1 class="display-4 fw-bold">Редактирование шаблона WhatsApp</h1>
-        <div class="col-lg-6 mx-auto">
-          <?php
-            $response = file_get_contents('https://b24.mircli24.ru/gupshup.php?type=templates');
-            $templates = json_decode($response, true);
-            $templates_name = $templates[0];
-            $templates = $templates[1]['templates'];
-            foreach ($templates as $one_gupshup_template) {
-              foreach($templates_name as $template_key => $one_template) {
-                if ($one_gupshup_template['id'] == $_GET['message_id'] && $one_gupshup_template['elementName'] == $template_key) {
-            ?>
-                  <form class="needs-validation" novalidate="">
-                    <div class="row g-3">
-                      <div class="col-sm-12">
-                        <label for="firstName" class="form-label">Имя</label>
-                        <input type="text" class="form-control" name="name" id="firstName" placeholder="" value="<?php echo $one_template['name']; ?>" required="required">
-                        <div class="invalid-feedback">
-                          Действительное имя обязательно.
-                        </div>
-                      </div>
+    <main>
+      <div class="container">
+        <div class="px-4 pt-5 my-5 text-center">
+          <h1 class="display-4 fw-bold">Редактирование шаблона WhatsApp</h1>
+          <div class="col-lg-6 mx-auto">
+            <form class="needs-validation" novalidate="">
+              <div class="row g-3">
+                <div class="col-sm-12">
+                  <label for="firstName" class="form-label">Имя</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="firstName"
+                    placeholder=""
+                    value=""
+                    required="required"
+                  />
+                  <div class="invalid-feedback">
+                    Действительное имя обязательно.
+                  </div>
+                </div>
 
-                      <div class="col-12">
-                        <label for="username" class="form-label">Шаблон</label>
-                        <div class="input-group has-validation">
-                          <textarea class="form-control" id="username" name="template" required="required"><?php echo $one_gupshup_template['data']; ?></textarea>
-                          <div class="invalid-feedback">
-                            Шаблон обязательно.
-                          </div>
-                        </div>
-                      </div>
+                <div class="col-12">
+                  <label for="username" class="form-label">Шаблон</label>
+                  <div class="input-group has-validation">
+                    <textarea
+                      class="form-control"
+                      id="username"
+                      name="template"
+                      required="required"
+                    ></textarea>
+                    <div class="invalid-feedback">Шаблон обязательно.</div>
+                  </div>
+                </div>
 
+                <div class="col-md-12">
+                  <label for="country" class="form-label">Сущности</label>
+                </div>
 
-                      <div class="col-md-12">
-                        <label for="country" class="form-label">Сущности</label>
-                      </div>
+                <hr class="my-4" />
 
-                    <hr class="my-4">
+                <p>
+                  <button
+                    class="btn btn-primary style-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseLead"
+                    aria-expanded="false"
+                    aria-controls="collapseLead"
+                  >
+                    <label class="form-check" for="lead-address">
+                      <input
+                        type="checkbox"
+                        name="entity"
+                        value="Лид"
+                        class="form-check-input js-input"
+                        id="lead-address"
+                      />
 
-                    <p>
-  
-                      <button class="btn btn-primary style-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLead" aria-expanded="false" aria-controls="collapseLead">
-                        <div class="form-check">
-                          <?php
-                            if (in_array('lead', $one_template['entities'])) {
-                          ?>
-                            <!-- <input type="checkbox" name="entity" checked value="lead" class="form-check-input" id="same-address">
-                          <?php
-                            } else {
-                          ?> -->
-                            <input type="checkbox" name="entity" value="Лид" class="form-check-input js-input" id="lead-address" data-inpeu-id="ss">
-                          <?php
-                            }
-                          ?>
-                          <label class="form-check-label" for="lead-address">Лид</label>
-                        </div>
-                      </button>
-                    </p>
-                    <div class="collapse" id="collapseLead">
-                      <div class="card card-body">
-                        <div>
-                          <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_one" >
-                            Поле №1
-                          </button>
-                          <input type='hidden' id="field_one" name="field_one">
-                          <div id="field_one_text"></div>
-                        </div>
-                        <div>
-                          <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_two">
-                            Поле №2
-                          </button>
-                          <input type='hidden' id="field_two" name="field_two">
-                          <div id="field_two_text"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Второй chek -->
-                    <p>
-  
-                      <button class="btn btn-primary style-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeal" aria-expanded="false" aria-controls="collapseDeal">
-                        <div class="form-check">
-                          <?php
-                            if (in_array('lead', $one_template['entities'])) {
-                          ?>
-                            <!-- <input type="checkbox" name="entity" checked value="lead" class="form-check-input" id="same-address">
-                          <?php
-                            } else {
-                          ?> -->
-                            <input type="checkbox" name="entity" value="Сделка" class="form-check-input js-input" id="deal-address" data-inpeu-id="ss">
-                          <?php
-                            }
-                          ?>
-                          <label class="form-check-label" for="deal-address">Сделка</label>
-                        </div>
-                      </button>
-                    </p>
-                    <div class="collapse" id="collapseDeal">
-                      <div class="card card-body">
-                        <div>
-                          <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_three" >
-                            Поле №1
-                          </button>
-                          <input type='hidden' id="field_three" name="field_three">
-                          <div id="field_three_text"></div>
-                        </div>
-                        <div>
-                          <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_four">
-                            Поле №2
-                          </button>
-                          <input type='hidden' id="field_four" name="field_four">
-                          <div id="field_four_text"></div>
-                        </div>
-                      </div>
-                    </div>
-<!-- Третий чек --> 
-<p>
-  
-  <button class="btn btn-primary style-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseСontacts" aria-expanded="false" aria-controls="collapseСontacts">
-    <div class="form-check">
-      <?php
-        if (in_array('lead', $one_template['entities'])) {
-      ?>
-        <!-- <input type="checkbox" name="entity" checked value="lead" class="form-check-input" id="same-address">
-      <?php
-        } else {
-      ?> -->
-        <input type="checkbox" name="entity" value="Контакты" class="form-check-input js-input" id="сontacts-address" data-inpeu-id="ss">
-      <?php
-        }
-      ?>
-      <label class="form-check-label" for="сontacts-address">Контакты</label>
-    </div>
-  </button>
-</p>
-<div class="collapse" id="collapseСontacts">
-  <div class="card card-body">
-    <div>
-      <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_five" >
-        Поле №1
-      </button>
-      <input type='hidden' id="field_five" name="field_five">
-      <div id="field_five_text"></div>
-    </div>
-    <div>
-      <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_six">
-        Поле №2
-      </button>
-      <input type='hidden' id="field_six" name="field_six">
-      <div id="field_six_text"></div>
-    </div>
-  </div>
-</div>
-<!-- Четвертый ! -->
-                    <div class="form-check">
-                      <?php
-                        if (in_array('company', $one_template['entities'])) {
-                      ?>
-                        <!-- <input type="checkbox" name="entity" checked value="company" class="form-check-input" id="same-address">
-                      <?php
-                        } else {
-                      ?> -->
-                        <input type="checkbox" name="entity" value="company" class="form-check-input js-input" id="same-address">
-                      <?php
-                        }
-                      ?>
-                      <label class="form-check-label" for="same-address">Компания</label>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <div class="col-md-12">
-                      <label for="country" class="form-label">Поля</label>
-                    </div>
-
-                    <hr class="my-4">
-                    
-                    <!-- ТУТ  ЦИКЛ ВЫВОДА  КНОПОК КОТОРЫЕ ЗАПУСКАЮТ МОДАЛКУ -->
-                     <!--  Кнопка для запуска модалки -->
+                      <div class="form-check-label">Лид</div>
+                    </label>
+                  </button>
+                </p>
+                <div class="collapse" id="collapseLead">
+                  <div class="card card-body">
                     <div>
-                      <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_one" >
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_one"
+                        data-type-tab="Лид"
+                      >
                         Поле №1
                       </button>
-                      <input type='hidden' id="field_one" name="field_one">
+                      <input type="hidden" id="field_one" name="field_one" />
                       <div id="field_one_text"></div>
                     </div>
                     <div>
-                      <button type="button" class="btn btn-primary js-button-modal-open" data-bs-toggle="modal" data-bs-target="#Modal" data-field-id="field_two">
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_two"
+                        data-type-tab="Лид"
+                      >
                         Поле №2
                       </button>
-                      <input type='hidden' id="field_two" name="field_two">
+                      <input type="hidden" id="field_two" name="field_two" />
                       <div id="field_two_text"></div>
-                    </div>div>
-                    <!-- Модалка Поле 1-->
-                    <div class="modal fade" id="Modal"  aria-labelledby="ModalLabel" aria-hidden="true">
-                      <div   class="modal-dialog modal-xl" > 
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5 js-modal-title" id="ModalLabel"></h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <!-- Добавление табов в модалку Поле 1 -->
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link active headerPanelTab" id="deal-panel-tab" data-bs-toggle="tab" data-bs-target="#deal-panel" type="button" role="tab" aria-controls="deal-panel" aria-selected="true"></button>
-                              </li>
-                               <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="responsible-panel-tab" data-bs-toggle="tab" data-bs-target="#responsible-panel" type="button" role="tab" aria-controls="responsible-panel" aria-selected="false">Ответсвенный</button>
-                              </li>
-                              <!--<li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contacts-panel-tab" data-bs-toggle="tab" data-bs-target="#contacts-panel" type="button" role="tab" aria-controls="contacts-panel" aria-selected="false">Контакты</button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="company-panel-tab" data-bs-toggle="tab" data-bs-target="#company-panel" type="button" role="tab" aria-controls="company-panel" aria-selected="false">Компания</button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="offers-panel-tab" data-bs-toggle="tab" data-bs-target="#offers-panel" type="button" role="tab" aria-controls="offers-panel" aria-selected="false "   >Предложения</button>
-                              </li>
-                              <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="manager-panel-tab" data-bs-toggle="tab" data-bs-target="#manager-panel" type="button" role="tab" aria-controls="manager-panel" aria-selected="false "   >Менеджер</button>
-                              </li> -->
-                            </ul>
-                            <div class="tab-content" id="myTabContent">
+                    </div>
+                  </div>
+                </div>
+                <!-- Второй chek -->
+                <p>
+                  <button
+                    class="btn btn-primary style-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseDeal"
+                    aria-expanded="false"
+                    aria-controls="collapseDeal"
+                  >
+                    <label class="form-check" for="deal-address">
+                      <input
+                        type="checkbox"
+                        name="entity"
+                        value="Сделка"
+                        class="form-check-input js-input"
+                        id="deal-address"
+                      />
 
-                              <div class="tab-pane fade show active" id="deal-panel" role="tabpanel" aria-labelledby="deal-panel-tab">
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button " data-bs-dismiss="modal" aria-label="Close"   data-id="field_id"  data-type="" data-type-responsible=""> ID </button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name"  data-type="" data-type-responsibless="">Название</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type"  data-type="" data-type-responsibless="">Тип</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count"  data-type="" data-type-responsibless="">Счет</button>
-                              </div>
-                             
-                              <div class="tab-pane fade " id="responsible-panel" role="tabpanel" aria-labelledby="responsible-panel-tab">
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_id_1"  data-type-responsibless="Ответсвенный">ID 1</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_name_1" data-type-responsibless="Ответсвенный">Название 1</button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_type_1" data-type-responsibless="Ответсвенный">Тип 1 </button>
-                                <button type="button" class="btn btn-outline-dark btn-sm generalButton js-field-button"  data-bs-dismiss="modal" aria-label="Close" data-id="field_count_1" data-type-responsibless="Ответсвенный">Счет 1</button>
-                              </div>
-                              
-                               
-                            <!-- EXIT Добавление табов в модалку Поле 1-->
+                      <div class="form-check-label">Сделка</div>
+                    </label>
+                  </button>
+                </p>
+                <div class="collapse" id="collapseDeal">
+                  <div class="card card-body">
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_three"
+                        data-type-tab="Сделка"
+                      >
+                        Поле №1
+                      </button>
+                      <input
+                        type="hidden"
+                        id="field_three"
+                        name="field_three"
+                      />
+                      <div id="field_three_text"></div>
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_four"
+                        data-type-tab="Сделка"
+                      >
+                        Поле №2
+                      </button>
+                      <input type="hidden" id="field_four" name="field_four" />
+                      <div id="field_four_text"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Третий чек -->
+                <p>
+                  <button
+                    class="btn btn-primary style-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseСontacts"
+                    aria-expanded="false"
+                    aria-controls="collapseСontacts"
+                  >
+                    <label class="form-check" for="сontacts-address">
+                      <input
+                        type="checkbox"
+                        name="entity"
+                        value="Контакты"
+                        class="form-check-input js-input"
+                        id="сontacts-address"
+                      />
+
+                      <div class="form-check-label"></div>
+                        Контакты
+                      </div>
+                    </label>
+                  </button>
+                </p>
+                <div class="collapse" id="collapseСontacts">
+                  <div class="card card-body">
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_five"
+                        data-type-tab="Контакты"
+                      >
+                        Поле №1
+                      </button>
+                      <input type="hidden" id="field_five" name="field_five" />
+                      <div id="field_five_text"></div>
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_six"
+                        data-type-tab="Контакты"
+                      >
+                        Поле №2
+                      </button>
+                      <input type="hidden" id="field_six" name="field_six" />
+                      <div id="field_six_text"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Четвертый ! -->
+                <p>
+                  <button
+                    class="btn btn-primary style-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseCompany"
+                    aria-expanded="false"
+                    aria-controls="collapseCompany"
+                  >
+                    <label class="form-check" for="company-address">
+                      <input
+                        type="checkbox"
+                        name="entity"
+                        value="Компания"
+                        class="form-check-input js-input"
+                        id="company-address"
+                      />
+
+                      <div class="form-check-label" 
+                        >Компания</div
+                      >
+                    </label>
+                  </button>
+                </p>
+                <div class="collapse" id="collapseCompany">
+                  <div class="card card-body">
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_seven"
+                        data-type-tab="Компания"
+                      >
+                        Поле №1
+                      </button>
+                      <input
+                        type="hidden"
+                        id="field_seven"
+                        name="field_seven"
+                      />
+                      <div id="field_seven_text"></div>
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        class="btn btn-primary js-button-modal-open"
+                        data-bs-toggle="modal"
+                        data-bs-target="#Modal"
+                        data-field-id="field_eight"
+                        data-type-tab="Компания"
+                      >
+                        Поле №2
+                      </button>
+                      <input
+                        type="hidden"
+                        id="field_eight"
+                        name="field_eight"
+                      />
+                      <div id="field_eight_text"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+
+                <!-- ТУТ  ЦИКЛ ВЫВОДА  КНОПОК КОТОРЫЕ ЗАПУСКАЮТ МОДАЛКУ -->
+                <!--  Кнопка для запуска модалки -->
+
+                <!-- Модалка Поле 1-->
+                <div
+                  class="modal fade"
+                  id="Modal"
+                  aria-labelledby="ModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1
+                          class="modal-title fs-5 js-modal-title"
+                          id="ModalLabel"
+                        ></h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Добавление табов в модалку Поле 1 -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                          <li class="nav-item" role="presentation">
+                            <button
+                              class="nav-link  show active headerPanelTab"
+                              id="deal-panel-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#deal-panel"
+                              type="button"
+                              role="tab"
+                              aria-controls="deal-panel"
+                              aria-selected="true"
+                            ></button>
+                          </li>
+                          <li class="nav-item" role="presentation">
+                            <button
+                              class="nav-link"
+                              id="responsible-panel-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#responsible-panel"
+                              type="button"
+                              role="tab"
+                              aria-controls="responsible-panel"
+                              aria-selected="false"
+                            >
+                              Ответсвенный
+                            </button>
+                          </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                          <div
+                            class="tab-pane fade show active"
+                            id="deal-panel"
+                            role="tabpanel"
+                            aria-labelledby="deal-panel-tab"
+                          >
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_id"
+                              data-type=""
+                              data-type-responsible=""
+                            >
+                              ID
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_name"
+                              data-type=""
+                              data-type-responsibless=""
+                            >
+                              Название
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_type"
+                              data-type=""
+                              data-type-responsibless=""
+                            >
+                              Тип
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_count"
+                              data-type=""
+                              data-type-responsibless=""
+                            >
+                              Счет
+                            </button>
                           </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+
+                          <div
+                            class="tab-pane fade"
+                            id="responsible-panel"
+                            role="tabpanel"
+                            aria-labelledby="responsible-panel-tab"
+                          >
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_id_1"
+                              data-type-responsibless="Ответсвенный"
+                            >
+                              ID 1
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_name_1"
+                              data-type-responsibless="Ответсвенный"
+                            >
+                              Название 1
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_type_1"
+                              data-type-responsibless="Ответсвенный"
+                            >
+                              Тип 1
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-dark btn-sm generalButton js-field-button"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                              data-id="field_count_1"
+                              data-type-responsibless="Ответсвенный"
+                            >
+                              Счет 1
+                            </button>
                           </div>
+
+                          <!-- EXIT Добавление табов в модалку Поле 1-->
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Закрыть
+                          </button>
                         </div>
                       </div>
-                    </div>  
-                
-
-                       
-                    <button class="w-100 btn btn-primary btn-lg" type="submit">Сохранить</button>
-                  </form>
-            <?php
-                  break 2;
-                }
-              }
-            }
-          ?>
-        </div>
-      <?php
-        endif;
-      ?>
-    </div>
-  </div>
-  <!-- <div class="modal fade show" id="exampleModalXl1" tabindex="-1" aria-labelledby="exampleModalXlLabel" style="display: block;" aria-modal="true" role="dialog">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title h4" id="exampleModalXlLabel">Поле №1</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-            <ul class="list-unstyled ps-0">
-              <?php
-                $fields_json = json_decode(file_get_contents(__DIR__.'/../../b24/fields_json.json'), true);
-                foreach ($fields_json as $key => $one_fields_group) {
-                  switch ($key) {
-                    case 'lead':
-                      $group_name = 'Лид';
-                      break;
-                    case 'deal':
-                      $group_name = 'Сделка';
-                      break;
-                    case 'contact':
-                      $group_name = 'Контакт';
-                      break;
-                    case 'company':
-                      $group_name = 'Компания';
-                      break;
-                    case 'quote':
-                      $group_name = 'Предложение';
-                      break;
-
-                  }
-              ?>
-                    <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                      <!-- ТУТ КАК РАЗ ВЫВОДИТСЯ НАЗВАНИЕ ГРУППЫ ПОЛЕЙ ТИПА ЛИД, СДЕЛКА, КОНТАКТ И Т.Д. -->
-                      <?php echo $group_name; ?>
-                    </button>
-                    <div class="collapse" id="home-collapse" style="">
-                      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <!-- ТУТ В ЦИКЛЕ САМИ ПОЛЯ -->
-                        <?php
-                          foreach ($one_fields_group as $one_field) {
-                        ?>
-                          <!-- <li>
-                            <input type="checkbox" name="field" value="<?php echo $one_field['field_id']; ?>" class="form-check-input" id="same-address">
-                            <label class="form-check-label" for="same-address"><?php echo $one_field['name']; ?></label>
-                          </li> -->
-                        <?php
-                          }
-                        ?>
-                      </ul>
                     </div>
-                  </li>
-              <?php
-                }
-              ?>
-            </ul>
+                  </div>
+
+                  
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </div>
-  </div> -->
-
-
-
-</main>
-    <!-- <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script> -->
+    </main>
     <script
-    src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
-    integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
-    crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+      integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw="
+      crossorigin="anonymous"
+    ></script>
     
-    <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
 
-<script>
-  var $editableFields = $('.js-field-button');
-  var $modalOpenButton = $('.js-button-modal-open');
-  
-  var headerPanelTab=document.querySelector('.headerPanelTab')
-  var checkboxInput = document.querySelectorAll('.js-input') 
+    <script>
+      var $editableFields = $(".js-field-button");
+      var $modalOpenButton = $(".js-button-modal-open");
 
-var labelValue;
-  console.log(checkboxInput)
- 
-  var input;
-  var div;
-  var labels= document.querySelectorAll("label")
+      var headerPanelTab = document.querySelector(".headerPanelTab");
+      var checkboxInput = document.querySelectorAll(".js-input");
 
-  
+      var labelValue;
+      console.log(checkboxInput);
 
-
-  var $modalTitle = $('.js-modal-title');
- 
-  $modalOpenButton.on('click', function(event) {
-   checkboxInput.forEach(element => {
-  if (element.checked===true){
-   
-      console.log(element.value)
-      inputValue = element.value
+      var input;
+      var div;
+      var labels = document.querySelectorAll("label");
+      var tab;
+      var buttonDeal =  new bootstrap.Tab("#deal-panel-tab")
+      var buttonResponsible = new bootstrap.Tab("#responsible-panel-tab")
+      var $modalTitle = $(".js-modal-title");
+     
       
-  }
+      $modalOpenButton.on("click", function (event) {
+        var $target = $(event.target);
+        
+        tab = event.target.dataset.typeTab;
+        headerPanelTab.innerHTML = tab;
+        var data = $target.data();
+        var fieldId = data.fieldId;
+        input = $("#" + fieldId);
+        div = $("#" + fieldId + "_text");
+        console.log($target);
+        $modalTitle.text($target.text());
+        
+        buttonDeal.show()
+       
+      });
  
- });
- headerPanelTab.innerHTML =  inputValue;
-    var $target = $(event.target);
-  
-    var data = $target.data();
-    var fieldId = data.fieldId;
-    input = $('#' + fieldId);
-    div = $('#' + fieldId + '_text');
-    console.log($target)
-    $modalTitle.text($target.text());
- 
-
-
-
-  });
-
-  $editableFields.on('click', function(event) {
-    
-    var $target = $(event.target);
-    var fieldId = $target.data().id; 
-    console.log($target.data().id)
-    var text = $target.text();  
-    console.log (fieldId)
-    var responsible = $target.data().typeResponsibless;
-    console.log(responsible)
-    $target.data().type=inputValue;
-   var tabText = $target.data().type; 
-   if (responsible=="Ответсвенный") {
-    input.val(fieldId);
-    div.text( responsible+ ': ' + text  );
-   }
-   else{ input.val(fieldId);
-    div.text(tabText+ ': ' + text  );}
+      $editableFields.on("click", function (event) {
+        var $target = $(event.target);
+        var fieldId = $target.data().id;
+        console.log($target.data().id);
+        var text = $target.text();
+        console.log(fieldId);
+        var responsible = $target.data().typeResponsibless;
+        $target.data().type = tab;
+        var tabText = $target.data().type;
+        if (responsible == "Ответсвенный") {
+          input.val(fieldId);
+          div.text(responsible + ": " + text);
+        } else {
+          input.val(fieldId);
+          div.text(tabText + ": " + text);
+        }
    
-   
-  });
- 
-</script>
+     
+
+      });
+    </script>
   </body>
 </html>
-
-
-
-<!-- 
-if (responsibles=="Ответсвенный") {
-  input.val(fieldId);
-  div.text(tabText + responsibles+ ': ' + text  );
- } -->
-
-
-
-
