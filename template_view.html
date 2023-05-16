@@ -26,6 +26,25 @@
     />
 
     <style>
+      .hidden {
+        display: none;
+      }
+      .fields-for-value {
+        display: flex;
+        align-items: center;
+      }
+      .modal-open-block {
+       display:flex;
+       flex-direction: column;
+       align-items: center;
+      }
+      .btn-danger {
+        text-align: center;
+        padding: 0px 5px ;
+        font-size: 12px;
+        margin-left: 15px;
+      }
+      
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -52,6 +71,7 @@
       .js-button-modal-open {
         margin: 10px;
       }
+     
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -129,7 +149,7 @@
                 </p>
                 <div class="collapse" id="collapseLead">
                   <div class="card card-body">
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -141,9 +161,12 @@
                         Поле №1
                       </button>
                       <input type="hidden" id="field_one" name="field_one" />
-                      <div id="field_one_text"></div>
+                      <div class="fields-for-value">
+                        <div id="field_one_text"></div>
+                        <button type="button" class="btn btn-danger  hidden  js-btn-delete-field" data-field-button="field_one" >x</button>
+                      </div> 
                     </div>
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -155,7 +178,8 @@
                         Поле №2
                       </button>
                       <input type="hidden" id="field_two" name="field_two" />
-                      <div id="field_two_text"></div>
+                      <div class="fields-for-value"><div id="field_two_text"></div>
+                      <button type="button" class="btn btn-danger hidden js-btn-delete-field" data-field-button="field_two" >x</button></div>
                     </div>
                   </div>
                 </div>
@@ -184,7 +208,7 @@
                 </p>
                 <div class="collapse" id="collapseDeal">
                   <div class="card card-body">
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -200,9 +224,11 @@
                         id="field_three"
                         name="field_three"
                       />
-                      <div id="field_three_text"></div>
+                      <div class="fields-for-value"> <div id="field_three_text"></div>
+                      <button type="button" class="btn btn-danger hidden js-btn-delete-field" data-field-button="field_three" >x</button></div>
+                     
                     </div>
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -214,8 +240,11 @@
                         Поле №2
                       </button>
                       <input type="hidden" id="field_four" name="field_four" />
-                      <div id="field_four_text"></div>
-                    </div>
+                      <div class="fields-for-value"> <div id="field_four_text"></div>
+                      <button type="button" class="btn btn-danger hidden js-btn-delete-field" data-field-button="field_four" >x</button></div>
+                       
+
+                      </div>
                   </div>
                 </div>
                 <!-- Третий чек -->
@@ -245,7 +274,7 @@
                 </p>
                 <div class="collapse" id="collapseСontacts">
                   <div class="card card-body">
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -257,9 +286,11 @@
                         Поле №1
                       </button>
                       <input type="hidden" id="field_five" name="field_five" />
-                      <div id="field_five_text"></div>
+                      <div class="fields-for-value"><div id="field_five_text"></div>
+                      <button type="button" class="btn btn-danger  hidden  js-btn-delete-field" data-field-button="field_five" >x</button></div>
+                      
                     </div>
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -271,7 +302,8 @@
                         Поле №2
                       </button>
                       <input type="hidden" id="field_six" name="field_six" />
-                      <div id="field_six_text"></div>
+                      <div class="fields-for-value"> <div id="field_six_text"></div>
+                      <button type="button" class="btn btn-danger  hidden  js-btn-delete-field" data-field-button="field_six" >x</button></div>
                     </div>
                   </div>
                 </div>
@@ -302,7 +334,7 @@
                 </p>
                 <div class="collapse" id="collapseCompany">
                   <div class="card card-body">
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -317,10 +349,12 @@
                         type="hidden"
                         id="field_seven"
                         name="field_seven"
-                      />
-                      <div id="field_seven_text"></div>
+                      /> 
+                      <div class="fields-for-value"><div id="field_seven_text"></div>
+                      <button type="button" class="btn btn-danger  hidden  js-btn-delete-field" data-field-button="field_seven" >x</button></div>
+                      
                     </div>
-                    <div>
+                    <div class="modal-open-block">
                       <button
                         type="button"
                         class="btn btn-primary js-button-modal-open"
@@ -328,6 +362,7 @@
                         data-bs-target="#Modal"
                         data-field-id="field_eight"
                         data-type-tab="Компания"
+                      
                       >
                         Поле №2
                       </button>
@@ -336,7 +371,10 @@
                         id="field_eight"
                         name="field_eight"
                       />
-                      <div id="field_eight_text"></div>
+                      <div class="fields-for-value">
+                        <div id="field_eight_text"></div>
+                        <button type="button" class="btn btn-danger  hidden  js-btn-delete-field" data-field-button="field_eight" >x</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -412,6 +450,7 @@
                               data-id="field_id"
                               data-type=""
                               data-type-responsible=""
+                              data-tab = ""
                             >
                               ID
                             </button>
@@ -434,6 +473,7 @@
                               data-id="field_type"
                               data-type=""
                               data-type-responsibless=""
+
                             >
                               Тип
                             </button>
@@ -536,13 +576,11 @@
     <script>
       var $editableFields = $(".js-field-button");
       var $modalOpenButton = $(".js-button-modal-open");
-
+      var resetButtonFiels = document.querySelectorAll(".js-btn-delete-field")
       var headerPanelTab = document.querySelector(".headerPanelTab");
       var checkboxInput = document.querySelectorAll(".js-input");
-
       var labelValue;
       console.log(checkboxInput);
-
       var input;
       var div;
       var labels = document.querySelectorAll("label");
@@ -550,44 +588,59 @@
       var buttonDeal =  new bootstrap.Tab("#deal-panel-tab")
       var buttonResponsible = new bootstrap.Tab("#responsible-panel-tab")
       var $modalTitle = $(".js-modal-title");
-     
-      
+      var fieldIDforButton;
+
       $modalOpenButton.on("click", function (event) {
         var $target = $(event.target);
         
         tab = event.target.dataset.typeTab;
         headerPanelTab.innerHTML = tab;
         var data = $target.data();
-        var fieldId = data.fieldId;
-        input = $("#" + fieldId);
-        div = $("#" + fieldId + "_text");
-        console.log($target);
+       fieldId = data.fieldId;
+        input = $("#" + fieldId)
+        div = $("#" + fieldId + "_text" ) 
         $modalTitle.text($target.text());
-        
         buttonDeal.show()
-       
+        fieldIDforButton = data.fieldId
       });
  
+
       $editableFields.on("click", function (event) {
+       event.preventDefault()
         var $target = $(event.target);
         var fieldId = $target.data().id;
-        console.log($target.data().id);
         var text = $target.text();
         console.log(fieldId);
         var responsible = $target.data().typeResponsibless;
         $target.data().type = tab;
         var tabText = $target.data().type;
+       var  deleteButtonField  = document.querySelector(`[data-field-button="${fieldIDforButton}"]`)
+       deleteButtonField.classList.remove('hidden')
         if (responsible == "Ответсвенный") {
           input.val(fieldId);
           div.text(responsible + ": " + text);
         } else {
           input.val(fieldId);
-          div.text(tabText + ": " + text);
+          div.text(tabText + ": " + text  );
         }
-   
-     
-
       });
+
+
+      resetButtonFiels.forEach((element)=> {
+        element.addEventListener("click", resetButton)
+      })
+      
+      function resetButton (event) {
+        event.preventDefault();
+        var buttonDeleteField = event.target
+        var buttonFieldID = event.target.dataset.fieldButton
+        var fieldInput = document.getElementById(buttonFieldID);
+        var fieldTabValue = document.getElementById(buttonFieldID+"_text")
+        fieldInput.value="";
+        fieldTabValue.innerText="";
+        buttonDeleteField.classList.add("hidden")
+      }
+    
     </script>
   </body>
 </html>
